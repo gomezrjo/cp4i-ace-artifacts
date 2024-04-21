@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmFlowOrder.msgnode="ComIbmFlowOrder.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmMQOutput.msgnode="ComIbmMQOutput.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:com_ibm_connector_kafka_ComIbmOutput.msgnode="com/ibm/connector/kafka/ComIbmOutput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"
+    nsURI="ForwardMQMsg.msgflow" nsPrefix="ForwardMQMsg.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.propertiesFilePath" name="propertiesFilePath">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="ForwardMQMsg" bundleName="ForwardMQMsg" pluginId="JGRFWDMQEVNTMULTI"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JGRFWDMQEVNTMULTI/icons/full/obj16/ForwardMQMsg.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JGRFWDMQEVNTMULTI/icons/full/obj30/ForwardMQMsg.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="27,147" queueName="CP4I.DEMO.API.Q" connection="CLIENT" messageDomainProperty="JSON" policyUrl="{CP4iQMGRDEMO}:QMGRDEMO">
+        <translation xmi:type="utility:ConstantString" string="MQ Input"/>
+      </nodes>
+      <nodes xmi:type="ComIbmFlowOrder.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="223,147">
+        <translation xmi:type="utility:ConstantString" string="Flow Order"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="597,147" mappingExpression="msl://{default}#ForwardMQMsg_Mapping">
+        <translation xmi:type="utility:ConstantString" string="Mapping"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="803,151" queueName="CP4I.DEMO.REQUEST.Q" connection="CLIENT" policyUrl="{CP4iQMGRDEMO}:QMGRDEMO">
+        <translation xmi:type="utility:ConstantString" string="MQ Output"/>
+      </nodes>
+      <nodes xmi:type="com_ibm_connector_kafka_ComIbmOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="801,255" connectorName="Kafka" topicName="cp4i-es-demo-topic" bootstrapServers="dummy" clientId="cp4iace-mqapi" useClientIdSuffix="true" acks="1" timeout="60" securityProtocol="SASL_SSL" sslProtocol="TLSv1.2" validateMaster="inherit" validateFailureAction="exception" policyUrl="{CP4IESDEMOSCRAM}:es-demo">
+        <translation xmi:type="utility:ConstantString" string="KafkaProducer"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.first" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_10" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.second" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.propertiesFilePath">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.propertiesFilePath" bundleName="com/ibm/connector/kafka/ComIbmOutput" pluginId="com.ibm.etools.mft.ibmnodes.definitions"/>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <attributeLinks promotedAttribute="Property.propertiesFilePath" overriddenNodes="FCMComposite_1_10">
+      <overriddenAttribute href="com/ibm/connector/kafka/ComIbmOutput.msgnode#Property.propertiesFilePath"/>
+    </attributeLinks>
+    <stickyBoard>
+      <stickyNote location="30,197">
+        <body xmi:type="utility:ConstantString" string="MQ/JSON&#xA;Input Message"/>
+      </stickyNote>
+      <stickyNote location="610,25">
+        <body xmi:type="utility:ConstantString" string="* Graphical Mapping &#xA;  JSON to Fix Lenght &#xA;  (DFDL)&#xA;&#xA;* Library for shared &#xA;   data definitions"/>
+      </stickyNote>
+      <stickyNote location="824,72">
+        <body xmi:type="utility:ConstantString" string="MQ/Fix Lenght &#xA;(Cobol Copybook) &#xA;Output Message"/>
+      </stickyNote>
+      <stickyNote location="809,309">
+        <body xmi:type="utility:ConstantString" string="Publish Event to Kafka &#xA;(Protocol Conversion)"/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>

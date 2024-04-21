@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmMQOutput.msgnode="ComIbmMQOutput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="cp4imq2mq.msgflow" nsPrefix="cp4imq2mq.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="cp4imq2mq" bundleName="cp4imq2mq" pluginId="JGRMQIVT"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JGRMQIVT/icons/full/obj16/cp4imq2mq.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JGRMQIVT/icons/full/obj30/cp4imq2mq.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="103,141" queueName="CP4I.DEMO.IN.Q" connection="CLIENT" policyUrl="{CP4iQMGRDEMO}:QMGRDEMO">
+        <translation xmi:type="utility:ConstantString" string="MQ Input"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="491,141" queueName="CP4I.DEMO.OUT.Q" connection="CLIENT" policyUrl="{CP4iQMGRDEMO}:QMGRDEMO">
+        <translation xmi:type="utility:ConstantString" string="MQ Output"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard>
+      <stickyNote location="264,56">
+        <body xmi:type="utility:ConstantString" string="Simple flow to demonstrate&#xA;integration with MQ"/>
+      </stickyNote>
+      <stickyNote location="110,210">
+        <body xmi:type="utility:ConstantString" string="Input Message in any format"/>
+      </stickyNote>
+      <stickyNote location="508,217">
+        <body xmi:type="utility:ConstantString" string="Passthrough to &#xA;Output Queue"/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>

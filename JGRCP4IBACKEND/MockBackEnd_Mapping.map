@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/CONTACT.xsd"/>
+    <output path="/cntctcsv.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="MockBackEnd_Mapping">
+        <input path="mb:msg(CONTACT,assembly,DFDL,Properties)" var="ComIbmMessageAssembly_CONTACT"/>
+        <output path="mb:msg(cntctcsv,assembly,DFDL,Properties)" var="ComIbmMessageAssembly_cntctcsv"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_CONTACT/Properties"/>
+            <output path="$ComIbmMessageAssembly_cntctcsv/Properties"/>
+            <override>
+                <assign value="{}:cntctcsv">
+                    <output path="$ComIbmMessageAssembly_cntctcsv/Properties/MessageType"/>
+                </assign>
+            </override>
+        </move>
+        <local>
+            <input path="$ComIbmMessageAssembly_CONTACT/CONTACT"/>
+            <output path="$ComIbmMessageAssembly_cntctcsv/cntctcsv/record"/>
+            <move automap="true">
+                <input path="CID"/>
+                <output path="cid"/>
+            </move>
+            <move automap="true">
+                <input path="FNAME"/>
+                <output path="fname"/>
+            </move>
+            <move automap="true">
+                <input path="LNAME"/>
+                <output path="lname"/>
+            </move>
+            <move automap="true">
+                <input path="EMAIL"/>
+                <output path="email"/>
+            </move>
+            <move automap="true">
+                <input path="PHONE"/>
+                <output path="phone"/>
+            </move>
+            <move automap="true">
+                <input path="COMPANY"/>
+                <output path="company"/>
+            </move>
+            <move automap="true">
+                <input path="COMMENTS"/>
+                <output path="comments"/>
+            </move>
+        </local>
+    </mappingDeclaration>
+</mappingRoot>
