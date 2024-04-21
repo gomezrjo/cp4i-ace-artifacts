@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="Kafka" policyName="eem-gateway" policyTemplate="Kafka">
+    <bootstrapServers>${EGW_BOOTSTRAP_SERVER}</bootstrapServers>
+    <securityProtocol>SASL_SSL</securityProtocol>
+    <saslMechanism>PLAIN</saslMechanism>
+    <sslProtocol>TLSv1.2</sslProtocol>
+    <securityIdentity>eemegwSecId</securityIdentity>
+    <saslConfig>org.apache.kafka.common.security.plain.PlainLoginModule required;</saslConfig>
+    <sslKeystoreLocation></sslKeystoreLocation>
+    <sslKeystoreType></sslKeystoreType>
+    <sslKeystoreSecurityIdentity></sslKeystoreSecurityIdentity>
+    <sslKeySecurityIdentity></sslKeySecurityIdentity>
+    <sslTruststoreLocation>/home/aceuser/truststores/egw-cert.jks</sslTruststoreLocation>
+    <sslTruststoreType>JKS</sslTruststoreType>
+    <sslTruststoreSecurityIdentity>truststorePass</sslTruststoreSecurityIdentity>
+    <sslEnableCertificateHostnameChecking>false</sslEnableCertificateHostnameChecking>
+    <krbServiceName></krbServiceName>
+  </policy>
+</policies>
