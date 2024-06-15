@@ -11,8 +11,8 @@
     <sslKeystoreType></sslKeystoreType>
     <sslKeystoreSecurityIdentity></sslKeystoreSecurityIdentity>
     <sslKeySecurityIdentity></sslKeySecurityIdentity>
-    <sslTruststoreLocation>/home/aceuser/truststores/es-cert.jks</sslTruststoreLocation>
-    <sslTruststoreType>JKS</sslTruststoreType>
+    <sslTruststoreLocation>/home/aceuser/truststores/es-cert.p12</sslTruststoreLocation>
+    <sslTruststoreType>PKCS12</sslTruststoreType>
     <sslTruststoreSecurityIdentity>truststorePass</sslTruststoreSecurityIdentity>
     <sslEnableCertificateHostnameChecking>false</sslEnableCertificateHostnameChecking>
     <krbServiceName></krbServiceName>
