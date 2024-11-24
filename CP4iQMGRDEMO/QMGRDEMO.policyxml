@@ -3,7 +3,7 @@
   <policy policyType="MQEndpoint" policyName="QMGRDEMO" policyTemplate="MQEndpoint">
     <connection>CLIENT</connection>
     <destinationQueueManagerName>QMGRDEMO</destinationQueueManagerName>
-    <queueManagerHostname>qmgr-demo-ibm-mq</queueManagerHostname>
+    <queueManagerHostname>${QMGR_HOST_NAME}</queueManagerHostname>
     <listenerPortNumber>1414</listenerPortNumber>
     <channelName>ACE.TO.MQ</channelName>
     <CCDTUrl></CCDTUrl>
