@@ -2,7 +2,7 @@
 <policies>
   <policy policyType="MQEndpoint" policyName="QMGRDEMO" policyTemplate="MQEndpoint">
     <connection>CLIENT</connection>
-    <destinationQueueManagerName>QMGRDEMO</destinationQueueManagerName>
+    <destinationQueueManagerName>${QMGR_NAME}</destinationQueueManagerName>
     <queueManagerHostname>${QMGR_HOST_NAME}</queueManagerHostname>
     <listenerPortNumber>1414</listenerPortNumber>
     <channelName>ACE.TO.MQ</channelName>
